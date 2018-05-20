@@ -1,0 +1,5 @@
+jupyter contrib nbextension install --user
+jupyter nbextension enable --py widgetsnbextension
+jupyter nbextension enable python-markdown/main
+jupyter nbextension install https://github.com/kenkoooo/jupyter-autopep8/archive/master.zip --user
+jupyter nbextension enable jupyter-autopep8-master/jupyter-autopep8

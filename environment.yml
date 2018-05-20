@@ -1,0 +1,16 @@
+name: canum-2018
+channels:
+  - damianavila82
+  - conda-forge
+dependencies:
+  - python
+  - numpy
+  - matplotlib
+  - pandas
+  - bokeh
+  - rise
+  - ipywidgets
+  - jupyter_contrib_nbextensions
+  - pip:
+    - nbgitpuller
+    - autopep8
