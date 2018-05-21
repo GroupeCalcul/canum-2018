@@ -1,0 +1,99 @@
+% Default to the notebook output style
+((* if not cell_style is defined *))
+    ((* set cell_style = 'style_ipython.tplx' *))
+((* endif *))
+
+% Inherit from the specified cell style.
+((* extends cell_style *))
+
+%===============================================================================
+% Latex Article
+%===============================================================================
+
+((* block docclass *))
+\documentclass[a4paper]{cedram-smai-jcm}
+((* endblock docclass *))
+
+((* block packages *))
+% Authors may use other style files (e.g., to create figures), as long as
+% they do not alter the layout of the article.
+ \usepackage{tikz}
+ \usepackage{subcaption}
+
+ \usepackage{adjustbox} % Used to constrain images to a maximum size 
+  \usepackage{geometry} % Used to adjust the document margins
+ \usepackage{fancyvrb} % verbatim replacement that allows latex
+((* endblock packages *))
+
+((* block author *))
+    \author[L. Gouarin]{\firstname{Lo\"ic} \lastname{Gouarin}}
+    \address{Laboratoire de mathématiques d'Orsay, France}
+    \email{loic.gouarin@math.u-psud.fr}
+((* endblock author *))
+
+
+((* block title *))
+    \title{Generative Art Using Spline}
+    \keywords{generative art, cubic spline}
+    \subjclass{65N35; 15A15}
+((* endblock title *))
+
+((* block maketitle *))
+((* endblock maketitle *))
+
+((*- block any_cell -*))
+    ((*- if 'abstract' in cell['metadata'].get('tags', {}) -*))
+
+        \begin{abstract}
+            ((( super() )))
+        \end{abstract}
+        \maketitle
+
+    ((*- else -*))
+        ((( super() )))
+    ((*- endif -*))
+((*- endblock any_cell -*))
+
+((* block input scoped *))
+    ((*- if not 'hide' in cell['metadata'].get('tags', {}) -*))
+        ((( super() )))
+    ((*- endif -*))
+((* endblock input *))
+
+% Purpose: Renders an output/input prompt
+((* macro add_my_prompt(text, cell, prompt, prompt_color) -*))
+    ((*- if cell.execution_count is defined -*))
+    ((*- set execution_count = "" ~ (cell.execution_count | replace(None, " ")) -*))
+    ((*- else -*))
+    ((*- set execution_count = " " -*))
+    ((*- endif -*))
+    ((*- set indention =  " " * (execution_count | length + 7) -*))
+\begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
+((( text )))
+\end{Verbatim}
+((*- endmacro *))
+
+((* block bibliography *))
+\bibliographystyle{plain}
+\bibliography{spline}
+((* endblock bibliography *))
+
+((*- block data_png -*))((( draw_my_figure(output.metadata.filenames['image/png'], cell) )))((*- endblock -*))
+((*- block data_pdf -*))((( draw_my_figure(output.metadata.filenames['application/pdf', cell]) )))((*- endblock -*))
+((*- block data_jpg -*))((( draw_my_figure(output.metadata.filenames['image/jpeg', cell]) )))((*- endblock -*))
+((*- block data_svg -*))((( draw_my_figure(output.metadata.filenames['image/svg+xml', cell]) )))((*- endblock -*))
+
+% Draw a figure using the graphicx package.
+((* macro draw_my_figure(filename, cell) -*))
+((* set filename = filename | posix_path *))
+((*- block figure scoped -*))
+    \begin{figure}[h]
+    \includegraphics[width=0.6\linewidth]{((( filename )))}
+    \caption{ ((( cell['metadata'].get('caption', '') )))}
+    ((*- if cell['metadata'].get('label', None) -*))
+        \label{fig:((( cell['metadata'].get('label', None) )))}
+    ((*- endif -*))
+    \end{figure}
+((*- endblock figure -*))
+((*- endmacro *))
+

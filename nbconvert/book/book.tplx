@@ -1,0 +1,93 @@
+% Default to the notebook output style
+((* if not cell_style is defined *))
+    ((* set cell_style = 'style_ipython.tplx' *))
+((* endif *))
+
+% Inherit from the specified cell style.
+((* extends cell_style *))
+
+
+%===============================================================================
+% Latex Book
+%===============================================================================
+
+((* block predoc *))
+    ((( super() )))
+    ((* block tableofcontents *))\tableofcontents((* endblock tableofcontents *))
+((* endblock predoc *))
+
+((* block docclass *))
+\documentclass[graybox,envcountchap,sectrefs]{svmono}
+%\documentclass{SIAMGHbook2016}
+((* endblock docclass *))
+
+((* block author *))
+\author{Lorena A. Barba, Olivier Mesnard}
+((* endblock author *))
+
+((* block markdowncell scoped *))
+((( cell.source | citation2latex | strip_files_prefix | convert_pandoc('markdown', 'json',extra_args=[]) | resolve_references | convert_pandoc('json','latex', extra_args=["--top-level-division=chapter"]) )))
+((* endblock markdowncell *))
+
+((* block title *))
+\input{mystyle.tex}
+
+\title{AeroPython}
+((* endblock title *))
+
+((* block maketitle *))
+\maketitle
+((* endblock maketitle *))
+
+((* block bibliography *))
+\bibliographystyle{unsrt}
+\bibliography{riemann}
+((* endblock bibliography *))
+
+((*- block any_cell -*))
+((*- if not 'hide' in cell['metadata'].get('tags', {}) -*))
+((( super() )))
+((*- endif -*))
+((*- endblock any_cell -*))
+
+((* block input scoped *))
+    ((( add_my_prompt(cell.source, cell, 'In ', 'incolor') )))
+((* endblock input *))
+
+((* block stream *))
+    {\begin{center}\begin{minipage}{.8\textwidth}
+    \begin{Verbatim}[commandchars=\\\{\}]
+((( output.text | escape_latex | ansi2latex )))
+    \end{Verbatim}
+    \end{minipage}\end{center}}
+    
+((* endblock stream *))
+
+((* block execute_result scoped *))
+    ((*- for type in output.data | filter_data_type -*))
+        ((*- if type in ['text/plain']*))
+        {\begin{center}\begin{minipage}{.8\textwidth}
+            ((( output.data['text/plain'] | escape_latex )))
+        \end{minipage}\end{center}}
+
+        ((* else -*))
+((( super() )))
+        ((*- endif -*))
+    ((*- endfor -*))
+((* endblock execute_result *))
+
+
+% Purpose: Renders an output/input prompt
+((* macro add_my_prompt(text, cell, prompt, prompt_color) -*))
+    ((*- if cell.execution_count is defined -*))
+    ((*- set execution_count = "" ~ (cell.execution_count | replace(None, " ")) -*))
+    ((*- else -*))
+    ((*- set execution_count = " " -*))
+    ((*- endif -*))
+    ((*- set indention =  " " * (execution_count | length + 7) -*))
+{\begin{center}\begin{minipage}{.8\textwidth}
+\begin{lstlisting}
+((( text )))
+\end{lstlisting}
+\end{minipage}\end{center}}
+((*- endmacro *))
