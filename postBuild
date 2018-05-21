@@ -3,3 +3,5 @@ jupyter nbextension enable --py widgetsnbextension
 jupyter nbextension enable python-markdown/main
 jupyter nbextension install https://github.com/kenkoooo/jupyter-autopep8/archive/master.zip --user
 jupyter nbextension enable jupyter-autopep8-master/jupyter-autopep8
+jupyter nbextension enable code_prettify/code_prettify
+jupyter nbextension enable move_selected_cells/main
