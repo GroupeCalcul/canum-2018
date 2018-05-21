@@ -1,4 +1,4 @@
-# canum-2018 - En route pour Jupiter!
+# canum-2018 - En route pour Jupyter!
 
 Mini-Symposium notebooks
 
