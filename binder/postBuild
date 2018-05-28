@@ -6,3 +6,6 @@ jupyter nbextension install https://github.com/kenkoooo/jupyter-autopep8/archive
 jupyter nbextension enable jupyter-autopep8-master/jupyter-autopep8
 jupyter nbextension enable code_prettify/code_prettify
 jupyter nbextension enable move_selected_cells/main
+
+jupyter nbextension install --py --symlink --sys-prefix pythreejs --user
+jupyter nbextension enable --py --sys-prefix pythreejs
