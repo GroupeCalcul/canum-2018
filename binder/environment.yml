@@ -14,8 +14,10 @@ dependencies:
   - nbconvert
   - ipywidgets
   - imageio
+  - seaborn
   - pip:
     - nbgitpuller
+    - py-heat-magic
     - autopep8
     - bookbook
     - imageio
