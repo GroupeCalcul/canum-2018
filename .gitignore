@@ -105,3 +105,5 @@ venv.bak/
 *.swp
 
 output
+
+ipywidgets/movie.gif

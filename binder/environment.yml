@@ -11,9 +11,11 @@ dependencies:
   - nbconvert
   - ipywidgets
   - jupyter_contrib_nbextensions
+  - imageio
   - pip:
     - nbgitpuller
     - autopep8
     - bookbook
     - imageio
     - pythreejs==1.0.0b3
+    - pillow
