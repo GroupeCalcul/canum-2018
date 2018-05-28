@@ -4,13 +4,15 @@ channels:
   - conda-forge
 dependencies:
   - python=3.6
+  - jupyter
+  - tornado==4.5.3
+  - tqdm
   - numpy
   - matplotlib=2.1
   - scipy
   - splinart
   - nbconvert
   - ipywidgets
-  - jupyter_contrib_nbextensions
   - imageio
   - pip:
     - nbgitpuller
@@ -19,3 +21,4 @@ dependencies:
     - imageio
     - pythreejs==1.0.0
     - pillow
+    - jupyter_contrib_nbextensions
