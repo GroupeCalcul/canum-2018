@@ -15,4 +15,5 @@ dependencies:
     - nbgitpuller
     - autopep8
     - bookbook
+    - imageio
     - pythreejs==1.0.0b3
