@@ -1,2 +1,9 @@
-ffmpeg
-texlive-full
+texlive-xetex
+texlive-latex-base
+texlive-latex-recommended
+texlive-science
+texlive-latex-extra
+texlive-fonts-recommended
+texlive-generic-recommended
+dvipng
+ghostscript
