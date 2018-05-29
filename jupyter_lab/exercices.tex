@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper,french]{article}
+\usepackage{epsfig}
+\usepackage[francais]{babel}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\frenchspacing
+
+\setlength{\textheight}{220mm}
+\setlength{\textwidth}{150mm}
+\setlength{\unitlength}{1mm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0mm}
+\setlength{\topmargin}{0cm}
+\setlength{\footskip}{1.5cm}
+%\setlength{\headsep}{5mm}
+\renewcommand{\baselinestretch}{1.2}
+
+\def\ite{\item[$\bullet$]}
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+\def\be{\begin{enumerate}}
+\def\ee{\end{enumerate}}
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\beqa{\begin{eqnarray}}
+\def\eeqa{\end{eqnarray}}
+\def\ba{\begin{array}}
+\def\ea{\end{array}}
+\def\bt{\begin{tabular}}
+\def\et{\end{tabular}}
+\def\bc{\begin{center}}
+\def\ec{\end{center}}
+\def\bL{\begin{Large}}
+\def\eL{\end{Large}}
+\def\bl{\begin{large}}
+\def\el{\end{large}}
+\def\bh{\begin{huge}}
+\def\eh{\end{huge}}
+\def\bH{\begin{Huge}}
+\def\eH{\end{Huge}}
+\def\k{\vec{k}}
+\def\x{\vec{x}}
+\def\y{\vec{y}}
+\def\z{\vec{z}}
+\def\X{\vec{X}}
+\def\Y{\vec{Y}}
+\def\Z{\vec{Z}}
+\def\u{\vec{u}}
+\def\v{\vec{v}}
+\def\w{\vec{w}}
+\def\e{\vec{e}}
+\def\Vec#1{\stackrel{\longrightarrow}{#1}}
+
+\def\gcro{\left[}
+\def\dcro{\right]}
+\def\gpar{\left(}
+\def\dpar{\right)}
+\def\arg#1{\overline{#1}}
+\def\rap#1{\left.\!\!\!\! \ba{c} \\ \ea \right|_{#1}}
+%*****************   derivees   *********************
+\def\pb#1#2{\frac{\partial#1}{\partial#2}}
+\def\pbb#1#2{\frac{\partial^2#1}{\partial#2^2}}
+%*****************   operateurs courants  ***********
+\def\rot#1{\vec{\bf \nabla} \wedge #1}
+\def\grad{\vec{\bf  \nabla} }
+\def\div{\bf  \nabla .}
+%*****************   integrales   *******************
+\def\dint#1{\displaystyle \int \! \! \!\int_{\cal #1}}
+\def\tint#1{\displaystyle \int \! \! \int \! \! \int_{\cal #1}}
+\pagestyle{empty}
+\begin{document}
+\bc
+{\large \bf ANALYSE NUMERIQUE}
+
+{\large \it Exercices}
+\vskip 10mm
+{\bf L3 Physique et Applications }
+
+\today
+\ec
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Exercice 1}
+On donne la matrice~:
+$$
+A = \left[ \begin{array}{ccc} 	1 & a & a \\
+			a & 1 & a \\
+			a & a & 1
+\end{array} \right]
+$$
+
+\be
+\item Pour quelles valeurs de $a$ la matrice $A$ est-elle {\bf sym\'etrique d\'efinie positive ($det A > 0$)} ?
+\item Posons $a=\frac{1}{4}$. Faire la d\'ecomposition $LU$ de $A$.
+\item Donner la matrice de {\bf Gauss-Seidel} en fonction de $a$ et \'etudier sa convergence.
+\ee
+
+\section*{Exercice 2}
+On consid\`ere le syst\`eme lin\'eaire $AX=b$:
+$$
+A = \left[ \begin{array}{ccc} 	\alpha & \gamma & 0 \\
+			\gamma & \alpha & \beta \\
+			0 & \beta & \alpha
+\ea \right]
+$$
+et $\alpha, \beta, \gamma$ sont trois param\`etres r\'eels.
+\be
+\item Sans construire les matrices d'it\'eration, donner les conditions suffisantes sur les param\`etres $\alpha, \beta, \gamma$ telles que les m\'ethodes de Jacobi et de Gauss-Seidel soient convergentes.
+\item Soit $J$ la matrice d'it\'eration de la m\'ethode de Jacobi.
+\be
+\item Ecrire la matrice $J$.
+\item Donner $\rho(J)$ le rayon spectral de $J$.
+\item Donner les conditions n\'ecessaires sur $\alpha, \beta, \gamma$ pour que la m\'ethode soit convergente.
+\item Donner les conditions sur $\alpha, \beta, \gamma$ pour que la matrice $A$ soit d\'efinie positive et montrer dans ce cas, que $\rho(G) = \rho^2(J) $ o\`u $\rho(G)$ est le rayon spectral de la matrice de Gauss-Seidel.
+\ee
+\ee
+
+\end{document}

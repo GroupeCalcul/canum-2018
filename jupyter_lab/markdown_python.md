@@ -1,5 +1,11 @@
 ## 01/06/2018
 
+# Math example
+
+$$
+f(x)=\sum_{n=0}^\infty\frac{f^{(n)}(a)}{n!}(x-a)^n
+$$
+
 # Markdown+Python Example
 
 This is a regular markdown file. In JupyterLab you can open and edit
