@@ -7,6 +7,10 @@ jupyter nbextension enable jupyter-autopep8-master/jupyter-autopep8
 jupyter nbextension enable code_prettify/code_prettify
 jupyter nbextension enable move_selected_cells/main
 
+git clone https://github.com/jupyter-widgets/pythreejs.git
+cd pythreejs
+pip install .
+
 jupyter nbextension install --py --symlink --sys-prefix pythreejs --user
 jupyter nbextension enable --py --sys-prefix pythreejs
 
