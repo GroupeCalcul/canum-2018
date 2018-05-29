@@ -1,12 +1,4 @@
 #!/bin/bash
-jupyter contrib nbextension install --user
-jupyter nbextension enable --py widgetsnbextension
-jupyter nbextension enable python-markdown/main
-jupyter nbextension install https://github.com/kenkoooo/jupyter-autopep8/archive/master.zip --user
-jupyter nbextension enable jupyter-autopep8-master/jupyter-autopep8
-jupyter nbextension enable code_prettify/code_prettify
-jupyter nbextension enable move_selected_cells/main
-
 git clone https://github.com/jupyter-widgets/pythreejs.git
 cd pythreejs
 pip install .
@@ -14,4 +6,5 @@ pip install .
 jupyter nbextension install --py --symlink --sys-prefix pythreejs --user
 jupyter nbextension enable --py --sys-prefix pythreejs
 
-jupyter labextension install @jupyter-widgets/jupyterlab-manager@0.34
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter lab build
