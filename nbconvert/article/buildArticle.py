@@ -9,7 +9,7 @@ file2copy = [
     'spline.bib',
     'cedram-smai-jcm.cls',
     'spline.ipynb',
-    'article.tplx',
+    'spline.tplx',
     'logo_smai.jpg'
 ]
 
@@ -22,7 +22,7 @@ for f in file2copy:
     shutil.copyfile(f, build_dir + f)
 
 os.chdir(build_dir)
-os.system('jupyter nbconvert --to latex spline.ipynb --template article.tplx')
+os.system('jupyter nbconvert --to latex spline.ipynb --template spline.tplx')
 os.system('pdflatex spline.tex')
 os.system('bibtex spline')
 os.system('pdflatex spline.tex')
