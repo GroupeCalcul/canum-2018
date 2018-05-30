@@ -1,3 +1,4 @@
+ffmpeg
 texlive-xetex
 texlive-latex-base
 texlive-latex-recommended

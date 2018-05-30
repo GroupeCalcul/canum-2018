@@ -12,6 +12,7 @@ dependencies:
   - notebook=5.3
   - nbconvert
   - ipywidgets
+  - imageio
   - pip:
     - bookbook
     - jupyterlab_latex
