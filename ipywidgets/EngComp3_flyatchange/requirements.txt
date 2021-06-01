@@ -12,4 +12,4 @@ notebook==6.1.5
 numpy==1.13.1
 numpydoc==0.7.0
 pandas==0.20.3
-urllib3==1.24.2
+urllib3==1.26.5
