@@ -1,7 +1,7 @@
 imageio==2.2.0
 imagesize==0.7.1
 ipykernel==4.6.1
-ipython==7.16.3
+ipython==8.10.0
 ipython-genutils==0.2.0
 ipywidgets==7.0.0
 jupyter-client==5.1.0
